@@ -1,0 +1,58 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "UrlFactory UrlConfig schema",
+	"description": "Schema for the configuration file of the Library UrlFactory",
+	"type": "object",
+	"definitions": {
+		"envDef": {
+			"type": "object",
+			"patternProperties": {
+				".*": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"default"
+			]
+		},
+		"hostsDef": {
+			"type": "object",
+			"patternProperties": {
+				".*": {
+					"$ref": "#/definitions/envDef"
+				}
+			}
+		},
+		"urlDef": {
+			"type": "object",
+			"properties": {
+				"hostKey": {
+					"type": "string"
+				},
+				"path": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"hostKey",
+				"path"
+			]
+		},
+		"urlsDef": {
+			"type": "object",
+			"patternProperties": {
+				".*": {
+					"$ref": "#/definitions/urlDef"
+				}
+			}
+		}
+	},
+	"properties": {
+		"hosts": {
+			"$ref": "#/definitions/hostsDef"
+		},
+		"urls": {
+			"$ref": "#definitions/urlsDef"
+		}
+	}
+}
