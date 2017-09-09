@@ -10,7 +10,7 @@ You can write your configurations in a file named `*.urls.json`. For applying th
 		"fileMatch": [
 			"/*.urls.json"
 		],
-		"url": "./source/libraries/UrlFactory/urls.schema.json"
+		"url": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json"
 	}
 ]
 ```
@@ -19,51 +19,43 @@ You can write your configurations in a file named `*.urls.json`. For applying th
 Here you can see an example:
 ```js
 {
-	"$schema": "./urls.schema.json",
+	"$schema": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json",
 	"hosts": {
-		"SIT": {
-			"default": "http://w-sit.dpr.com:8181",
-			"CMS": "https://sit.dpr.com",
-			"JAWS": "https://sit-myid.dpr.com"
+		"DEV": {
+			"default": "http://dev.example.com",
+			"CMS": "https://dev.wpexample.com",
+			"PROFILER": "https://dev.profiler.com"
 		},
-		"UAT": {
-			"default": "http://w-uat.dpr.com:8181",
-			"CMS": "https://uat.dpr.com",
-			"JAWS": "https://uat-myid.dpr.com"
+		"TEST": {
+			"default": "http://test.example.com",
+			"CMS": "https://test.wpexample.com",
+			"PROFILER": "https://test.profiler.com"
 		}
 	},
 	"urls": {
 		"RETRIEVE_ZONES": {
 			"hostKey": "CMS",
-			"path": "/en/mobile/listZones"
-		},
-		"RETRIEVE_POIS": {
-			"hostKey": "CMS",
-			"path": "/en/mobile/listOfPoi"
+			"path": "/api/zones"
 		},
 		"RETRIEVE_FAQ": {
 			"hostKey": "CMS",
-			"path": "/en/mobile/retrieveFaqs"
+			"path": "/api/faqs"
 		},
-		"MANAGE_USER_DETAILS": {
-			"hostKey": "JAWS",
-			"path": "/services/dpr/user/manageuserdetails"
+		"RETRIEVE_USER": {
+			"hostKey": "PROFILER",
+			"path": "/api/user"
 		},
 		"CHANGE_PASSWORD": {
-			"hostKey": "JAWS",
-			"path": "/services/dpr/user/changepassword"
+			"hostKey": "PROFILER",
+			"path": "/api/password/change"
 		},
 		"CONTACT_US": {
-			"hostKey": "JAWS",
-			"path": "/services/dpr/notification/send"
-		},
-		"RETRIEVE_COUPON": {
-			"hostKey": "JAWS",
-			"path": "/services/dpr/promotions"
+			"hostKey": "PROFILER",
+			"path": "/api/contact"
 		},
 		"RETRIEVE_TICKETS_MISSING_HOST": {
-			"hostKey": "VGS",
-			"path": "/services/dpr/products"
+			"hostKey": "TICKETS",
+			"path": "/api/tickets"
 		},
 		"RETRIEVE_USER_FORMATTED": {
 			"hostKey": "CMS",
