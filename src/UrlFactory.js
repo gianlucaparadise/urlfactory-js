@@ -30,6 +30,9 @@
  * @prop {Urls} urls
  */
 
+/**
+ * This handles your *.urls.json config file
+ */
 class UrlFactory {
 
 	/**

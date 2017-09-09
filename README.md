@@ -1,8 +1,16 @@
 # UrlFactory
 
-### Config File Instructions
+This library helps you handling and building the urls depending on current environment.
 
-##### Apply JSON Schema
+## Installation
+
+```
+npm i urlfactory-js --save
+```
+
+## Config File Instructions
+
+### Apply JSON Schema
 You can write your configurations in a file named `*.urls.json`. For applying the JSON Schema validator in VS Code, add this configuration in your `settings.json` file:
 ```js
 "json.schemas": [
@@ -15,7 +23,13 @@ You can write your configurations in a file named `*.urls.json`. For applying th
 ]
 ```
 
-#### Config Example
+Otherwise you can include this line on top of your config file (see *Config Example*)
+
+```js
+"$schema": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json"
+```
+
+### Config Example
 Here you can see an example:
 ```js
 {
