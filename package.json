@@ -1,6 +1,6 @@
 {
   "name": "urlfactory-js",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "This library builds the urls depending on the selected environment",
   "author": {
     "name": "gianlucaparadise",
@@ -9,9 +9,10 @@
   },
   "license": "Apache-2.0",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gianlucaparadise/telegraf-calendar-telegram"
+    "url": "https://github.com/gianlucaparadise/urlfactory-js"
   },
   "scripts": {
     "test": "jest"

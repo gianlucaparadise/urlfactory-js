@@ -97,11 +97,11 @@ class UrlFactory {
 	 * Build url appending Url.path to host retrieved using 'getHost'
 	 * @param {string} key Url key name
 	 * @param {any[]} params List of params for positional placeholders formatting. Example of path: "/{0}/user/{1}"
-	 * @returns {(string | null)}
+	 * @returns {(string)}
 	 */
 	getUrl(key, ...params) {
 		const url = this.config.urls[key];
-		if (!url) return null;
+		if (!url) throw Error("Missing url key");
 
 		let host = this.getHost(url.hostKey);
 
@@ -116,6 +116,8 @@ module.exports = UrlFactory;
 /**
  * String format with positional placeholders.
  * Example: sformat("Hello {0}, I'm {1}", "World", "fine"); returns "Hello World, I'm fine"
+ * When a placeholder doesn't match with any param, the placeholder is removed.
+ * Example: sformat("Hello {0}, I'm {1}. How are {2}?", "World", "fine"); returns "Hello World, I'm fine. How are ?"
  * @param {string} baseString String to be formatted
  * @param {any[]} parameters Ordered parameters
  */
@@ -129,6 +131,6 @@ function sformat(baseString, parameters) {
 		if (match === "}}")
 			return "}";
 		value = parameters[parseInt(group, 10)];
-		return value ? value.toString() : match;
+		return value ? value.toString() : '';
 	});
 }

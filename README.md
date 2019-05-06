@@ -4,30 +4,28 @@ This library helps you handling and building the urls depending on current envir
 
 ## Installation
 
+```shell
+yarn add urlfactory-js
 ```
+or
+```shell
 npm i urlfactory-js --save
 ```
 
+## Basic Usage
+
+Create the UrlFactory:
+```js
+const UrlFactory = require('urlfactory-js');
+const urlConfig = require('../../config/urls/urls.config.json'); // path to urls config file
+const urlFactory = new UrlFactory(urlConfig, 'DEV'); // 'DEV' is the name of the environment you want to use
+```
+Get the urls:
+```js
+const url = urlFactory.getUrl('RETRIEVE_FAQ');
+```
+
 ## Config File Instructions
-
-### Apply JSON Schema
-You can write your configurations in a file named `*.urls.json`. For applying the JSON Schema validator in VS Code, add this configuration in your `settings.json` file:
-```js
-"json.schemas": [
-	{
-		"fileMatch": [
-			"/*.urls.json"
-		],
-		"url": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json"
-	}
-]
-```
-
-Otherwise you can include this line on top of your config file (see *Config Example*)
-
-```js
-"$schema": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json"
-```
 
 ### Config Example
 Here you can see an example:
@@ -77,4 +75,23 @@ Here you can see an example:
 		}
 	}
 }
+```
+
+### Apply JSON Schema
+You can write your configurations in a file named `*.urls.json`. For applying the JSON Schema validator in VS Code, add this configuration in your `settings.json` file:
+```js
+"json.schemas": [
+	{
+		"fileMatch": [
+			"/*.urls.json"
+		],
+		"url": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json"
+	}
+]
+```
+
+Otherwise you can include this line on top of your config file (see *Config Example*)
+
+```js
+"$schema": "https://raw.githubusercontent.com/gianlucaparadise/urlfactory-js/master/urls.schema.json"
 ```
