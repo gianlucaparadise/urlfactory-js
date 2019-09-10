@@ -52,10 +52,10 @@ describe('urlFactory', () => {
 		expect(url).toEqual("http://dev.example.com/api/tickets");
 	});
 
-	it('should get null when missing url', () => {
-		const url = urlFactory.getUrl("RETRIEVE_MARIO");
+	it('should throw exception when missing url', () => {
+		const getUrl = () => urlFactory.getUrl("RETRIEVE_MARIO");
 
-		expect(url).toBeNull();
+		expect(getUrl).toThrow(Error);
 	});
 
 	it('should get formatted url', () => {
